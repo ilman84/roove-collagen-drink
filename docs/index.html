@@ -15,16 +15,24 @@
     <title>Roove Collagen Asli | Glowing Lebih Cepat | Gratis Ongkir</title>
     <link href="output.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="./assets/favicon.jpg" />
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17165045891"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-17165045891');
-</script>
+    <!-- Framer Motion -->
+    <script src="https://unpkg.com/framer-motion@11.0.3/dist/framer-motion.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17165045891"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17165045891');
+    </script>
 
     <style>
       .fixed-action {
@@ -36,23 +44,184 @@
       .fixed-action a {
         margin-bottom: 10px;
       }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #9333ea;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7c3aed;
+      }
+
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Animation classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .slide-in-left.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s ease-out;
+      }
+
+      .slide-in-right.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.6s ease-out;
+      }
+
+      .scale-in.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .bounce-in {
+        opacity: 0;
+        transform: scale(0.3);
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .bounce-in.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      /* Hover effects */
+      .hover-lift {
+        transition: all 0.3s ease;
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .hover-glow {
+        transition: all 0.3s ease;
+      }
+
+      .hover-glow:hover {
+        box-shadow: 0 0 30px rgba(147, 51, 234, 0.3);
+      }
+
+      /* Floating animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Pulse glow */
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(147, 51, 234, 0.6);
+        }
+      }
+
+      .pulse-glow {
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+
+      /* Stagger animation for testimonials */
+      .stagger-item {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .stagger-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger delay */
+      .stagger-item:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .stagger-item:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .stagger-item:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .stagger-item:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .stagger-item:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .stagger-item:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+      .stagger-item:nth-child(7) {
+        transition-delay: 0.7s;
+      }
     </style>
   </head>
   <body class="bg-white text-gray-800">
     <!-- Hero Section -->
-    <section id="hero" class="py-10 px-4 text-center">
+    <section id="hero" class="py-10 px-4 text-center overflow-hidden">
       <div
         class="container mx-auto flex flex-col md:flex-row-reverse items-center justify-center gap-8 text-center md:text-left"
       >
         <!-- Gambar Ayu -->
-        <img
-          src="./assets/ayu-ting-ting.webp"
-          alt="Ayu Ting Ting"
-          class="w-80 h-80 md:w-[400px] md:h-[400px] rounded-full mx-auto md:mx-0 shadow-lg"
-        />
+        <div class="fade-in slide-in-right">
+          <img
+            src="./assets/ayu-ting-ting.webp"
+            alt="Ayu Ting Ting"
+            class="w-80 h-80 md:w-[400px] md:h-[400px] rounded-full mx-auto md:mx-0 shadow-lg hover-lift float"
+          />
+        </div>
 
         <!-- Konten Teks -->
-        <div class="max-w-xl">
+        <div class="max-w-xl fade-in slide-in-left">
           <h1 class="text-3xl md:text-5xl font-bold text-pink-600">
             Cerahkan Hari dengan
             <span class="text-purple-800"> Roove Collagen Drink </span>
@@ -63,17 +232,17 @@
           </p>
           <a
             href="https://wa.me/6285883875292"
-            class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-transform hover:scale-105 text-[14px] md:text-lg active:scale-95 animate-pulse"
+            class="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:scale-105 text-[14px] md:text-lg active:scale-95 animate-pulse hover-glow pulse-glow"
           >
             Beli Sekarang - Free Ongkir - BISA COD
           </a>
 
           <!-- Gambar Produk -->
-          <div class="mt-8">
+          <div class="mt-8 scale-in">
             <img
               src="./assets/roove-minuman-kecantikan.webp"
               alt="Roove Box"
-              class="mx-auto md:mx-0 w-full md:w-1/2 max-w-md object-cover"
+              class="mx-auto md:mx-0 w-full md:w-1/2 max-w-md object-cover hover-lift"
             />
           </div>
         </div>
@@ -81,11 +250,11 @@
     </section>
 
     <!-- Diformulasi Ilmiah, Dibuat untuk Kecantikan Sejati Section -->
-    <section class="bg-purple-800 text-white py-6">
+    <section class="bg-purple-800 text-white py-6 overflow-hidden">
       <div
         class="container mx-auto px-6 grid md:grid-cols-2 gap-8 items-center"
       >
-        <div>
+        <div class="fade-in slide-in-left">
           <h2 class="text-3xl font-bold mb-4">
             Diformulasi Ilmiah, Dibuat untuk Kecantikan Sejati
           </h2>
@@ -95,29 +264,29 @@
             pertama merasakan hasilnya!
           </p>
         </div>
-        <div class="flex justify-center">
+        <div class="flex justify-center fade-in slide-in-right">
           <img
             src="./assets/isi-roove.webp"
             alt="Ilustrasi Sains"
-            class="w-full max-w-md rounded-xl shadow-lg"
+            class="w-full max-w-md rounded-xl shadow-lg hover-lift"
           />
         </div>
       </div>
     </section>
 
     <!-- Waktunya Kulitmu Bersinar Alami! Section -->
-    <section class="bg-gray-100 py-8">
+    <section class="bg-gray-100 py-8 overflow-hidden">
       <div
         class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center"
       >
-        <div>
+        <div class="fade-in slide-in-left">
           <img
             src="./assets/glowing.webp"
             alt="Ready to Glow"
-            class="w-full max-w-md mx-auto rounded-xl shadow-lg"
+            class="w-full max-w-md mx-auto rounded-xl shadow-lg hover-lift"
           />
         </div>
-        <div>
+        <div class="fade-in slide-in-right">
           <h2 class="text-3xl font-bold text-purple-700 mb-4">
             Waktunya Kulitmu Bersinar Alami!
           </h2>
@@ -129,7 +298,7 @@
           </p>
           <a
             href="https://wa.me/6285883875292"
-            class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg transition-transform hover:scale-105 py-2 px-6 rounded-lg text-[14px] md:text-lg active:scale-95 animate-pulse"
+            class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold shadow-lg transition-all duration-300 hover:scale-105 py-2 px-6 rounded-lg text-[14px] md:text-lg active:scale-95 animate-pulse hover-glow"
             >Beli Sekarang - Free Ongkir - BISA COD</a
           >
         </div>
@@ -137,28 +306,28 @@
     </section>
 
     <!-- Sertifikasi Section -->
-    <section class="bg-purple-800 text-white py-6">
+    <section class="bg-purple-800 text-white py-6 overflow-hidden">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-2xl font-bold mb-6">
+        <h2 class="text-2xl font-bold mb-6 fade-in">
           Aman, Terdaftar, dan Bersertifikat — Karena Kecantikan Anda Layak yang
           Terbaik
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+          <div class="fade-in scale-in">
             <img
               src="./assets/BPOM.webp"
               alt="BPOM"
-              class="mx-auto max-w-28 mb-2"
+              class="mx-auto max-w-28 mb-2 hover-lift"
             />
             <p class="text-md">
               Nomor BPOM Roove MD 867028013137 menjamin keamanan konsumsi.
             </p>
           </div>
-          <div>
+          <div class="fade-in scale-in">
             <img
               src="./assets/halal.webp"
               alt="Halal MUI"
-              class="mx-auto max-w-28 mb-2"
+              class="mx-auto max-w-28 mb-2 hover-lift"
             />
             <p class="text-md">
               Sertifikat Halal MUI 00120094340319 memastikan kehalalan Roove.
@@ -167,26 +336,27 @@
         </div>
       </div>
     </section>
+
     <!-- Video Section -->
-    <section class="bg-white py-5">
+    <section class="bg-white py-5 overflow-hidden">
       <div class="container mx-auto text-center px-4">
-        <h3 class="text-2xl font-bold text-pink-700 mb-6">
+        <h3 class="text-2xl font-bold text-pink-700 mb-6 fade-in">
           Tonton Video Tentang Roove
         </h3>
 
         <div class="space-y-6 max-w-5xl mx-auto">
-          <div>
+          <div class="fade-in slide-in-left">
             <video
-              class="w-full rounded-lg shadow-lg"
+              class="w-full rounded-lg shadow-lg hover-lift"
               src="./assets/liputan-roove.mp4"
               autoplay
               controls
               loop
             ></video>
           </div>
-          <div>
+          <div class="fade-in slide-in-right">
             <video
-              class="w-full rounded-lg shadow-lg"
+              class="w-full rounded-lg shadow-lg hover-lift"
               src="./assets/Testimoni1.mp4"
               autoplay
               controls
@@ -198,16 +368,18 @@
     </section>
 
     <!-- Testimoni Section -->
-    <section class="bg-gray-100 py-6">
+    <section class="bg-gray-100 py-6 overflow-hidden">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center text-purple-700 mb-8">
+        <h2 class="text-3xl font-bold text-center text-purple-700 mb-8 fade-in">
           Apa Kata Mereka?
         </h2>
 
         <div class="overflow-x-auto">
           <div class="flex gap-6 w-max">
             <!-- Testimoni 1 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/ayu-ting-ting.webp"
                 alt="Testimoni 1"
@@ -223,7 +395,9 @@
             </div>
 
             <!-- Testimoni 2 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/testimoni2.webp"
                 alt="Testimoni 2"
@@ -238,7 +412,9 @@
             </div>
 
             <!-- Testimoni 3 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/testimoni3.webp"
                 alt="Testimoni 3"
@@ -254,7 +430,9 @@
             </div>
 
             <!-- Testimoni 4 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/testimoni4.webp"
                 alt="Testimoni 4"
@@ -269,7 +447,9 @@
             </div>
 
             <!-- Testimoni 5 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/testimoni5.webp"
                 alt="Testimoni 3"
@@ -282,8 +462,11 @@
                 – Sri, 38 tahun
               </p>
             </div>
+
             <!-- Testimoni 6 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/testimoni6.webp"
                 alt="Testimoni 3"
@@ -297,8 +480,11 @@
                 – Bilqis, 26 tahun
               </p>
             </div>
+
             <!-- Testimoni 7 -->
-            <div class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0">
+            <div
+              class="bg-white shadow-lg rounded-xl p-4 w-72 flex-shrink-0 stagger-item hover-lift hover-glow"
+            >
               <img
                 src="./assets/testimoni1.webp"
                 alt="Testimoni 3"
@@ -316,43 +502,56 @@
         </div>
       </div>
     </section>
+
     <!-- Manfaat Section -->
-    <section id="manfaat" class="py-6 px-6 bg-purple-800">
-      <h2 class="text-2xl md:text-3xl font-bold text-center text-white">
+    <section id="manfaat" class="py-6 px-6 bg-purple-800 overflow-hidden">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-white fade-in">
         Manfaat Roove Collagen
       </h2>
       <div class="grid md:grid-cols-2 gap-4 md:gap-6 mt-8 max-w-6xl mx-auto">
-        <div class="flex items-start space-x-4 text-white">
+        <div
+          class="flex items-start space-x-4 text-white fade-in slide-in-left"
+        >
           <span class="text-white text-3xl">✓</span>
           <p class="text-lg md:text-2xl font-bold">
             Mengandung kolagen ikan berkualitas tinggi
           </p>
         </div>
-        <div class="flex items-start space-x-4 text-white">
+        <div
+          class="flex items-start space-x-4 text-white fade-in slide-in-right"
+        >
           <span class="text-white text-3xl">✓</span>
           <p class="text-lg md:text-2xl font-bold">
             Vitamin C & E bantu peremajaan kulit
           </p>
         </div>
-        <div class="flex items-start space-x-4 text-white">
+        <div
+          class="flex items-start space-x-4 text-white fade-in slide-in-left"
+        >
           <span class="text-white text-3xl">✓</span>
           <p class="text-lg md:text-2xl font-bold">
             Rasa enak, segar, dan tidak amis
           </p>
         </div>
-        <div class="flex items-start space-x-4 text-white">
+        <div
+          class="flex items-start space-x-4 text-white fade-in slide-in-right"
+        >
           <span class="text-white text-3xl">✓</span>
           <p class="text-lg md:text-2xl font-bold">
             Praktis dibawa dan dikonsumsi setiap hari
           </p>
         </div>
-        <div class="flex items-start space-x-4 text-white">
+        <div
+          class="flex items-start space-x-4 text-white fade-in slide-in-left"
+        >
           <span class="text-white text-3xl">✓</span>
           <p class="text-lg md:text-2xl font-bold">
             Aman Untuk Ibu Hamil dan Lansia
           </p>
         </div>
-        <div class="flex items-start space-x-4 text-white">
+        <div
+          class="flex items-start space-x-4 text-white fade-in slide-in-right"
+        >
           <span class="text-white text-3xl">✓</span>
           <p class="text-lg md:text-2xl font-bold">
             Memperkuat Tulang dan Mencegah Rambut Rontok
@@ -362,59 +561,77 @@
     </section>
 
     <!-- SHOP Section -->
-    <section class="relative bg-white py-6" id="order">
-  <div class="container max-w-screen-lg mx-auto text-center relative z-10">
-    <h2 class="text-3xl font-bold text-purple-700 mb-3">SHOP</h2>
-    <p class="text-xl mb-3 text-gray-600">
-      Roove tersedia dalam 3 varian kemasan. Pilih sesuai kebutuhan Anda!
-    </p>
-    <div class="flex flex-col items-center md:flex-row md:items-stretch flex-wrap justify-between gap-3">
+    <section class="relative bg-white py-6 overflow-hidden" id="order">
+      <div class="container max-w-screen-lg mx-auto text-center relative z-10">
+        <h2 class="text-3xl font-bold text-purple-700 mb-3 fade-in">SHOP</h2>
+        <p class="text-xl mb-3 text-gray-600 fade-in">
+          Roove tersedia dalam 3 varian kemasan. Pilih sesuai kebutuhan Anda!
+        </p>
+        <div
+          class="flex flex-col items-center md:flex-row md:items-stretch flex-wrap justify-between gap-3"
+        >
+          <!-- Card 1 -->
+          <div
+            class="border border-gray-300 rounded-xl p-4 shadow-md w-[330px] md:w-[48%] lg:w-[30%] fade-in slide-in-left hover-lift hover-glow"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              Roove Beauty Collagen Drink
+            </h3>
+            <p class="mb-4 text-xl">Paket Hemat: 10 Sachet dalam 1 Pouch</p>
+            <p class="text-2xl font-bold text-purple-700 mb-4">Rp. 152.000</p>
+            <a
+              href="https://wa.me/6285883875292"
+              class="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg active:scale-95 animate-pulse hover-glow"
+            >
+              PESAN SEKARANG - GRATIS ONGKIR - BISA COD
+            </a>
+          </div>
 
-      <!-- Card 1 -->
-      <div class="border border-gray-300 rounded-xl p-4 shadow-md w-[330px] md:w-[48%] lg:w-[30%]">
-        <h3 class="text-xl font-semibold mb-2">Roove Beauty Collagen Drink</h3>
-        <p class="mb-4 text-xl">Paket Hemat: 10 Sachet dalam 1 Pouch</p>
-        <p class="text-2xl font-bold text-purple-700 mb-4">Rp. 152.000</p>
-        <a href="https://wa.me/6285883875292"
-          class="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg transition-transform hover:scale-105 text-lg active:scale-95 animate-pulse">
-          PESAN SEKARANG - GRATIS ONGKIR - BISA COD
-        </a>
-      </div>
+          <!-- Card 2 -->
+          <div
+            class="border border-gray-300 rounded-xl p-4 shadow-md w-[330px] md:w-[48%] lg:w-[30%] fade-in scale-in hover-lift hover-glow"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              Roove Beauty Collagen Drink
+            </h3>
+            <p class="mb-4 text-xl">Paket Hemat: 20 Sachet dalam 1 Pouch</p>
+            <p class="text-2xl font-bold text-purple-700 mb-4">Rp. 295.000</p>
+            <a
+              href="https://wa.me/6285883875292"
+              class="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg active:scale-95 animate-pulse hover-glow"
+            >
+              PESAN SEKARANG - GRATIS ONGKIR - BISA COD
+            </a>
+          </div>
 
-      <!-- Card 2 -->
-      <div class="border border-gray-300 rounded-xl p-4 shadow-md w-[330px] md:w-[48%] lg:w-[30%]">
-        <h3 class="text-xl font-semibold mb-2">Roove Beauty Collagen Drink</h3>
-        <p class="mb-4 text-xl">Paket Hemat: 20 Sachet dalam 1 Pouch</p>
-        <p class="text-2xl font-bold text-purple-700 mb-4">Rp. 295.000</p>
-        <a href="https://wa.me/6285883875292"
-          class="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg transition-transform hover:scale-105 text-lg active:scale-95 animate-pulse">
-          PESAN SEKARANG - GRATIS ONGKIR - BISA COD
-        </a>
+          <!-- Card 3 (Tambahan) -->
+          <div
+            class="border border-gray-300 rounded-xl p-4 shadow-md w-[330px] md:w-[48%] lg:w-[32%] fade-in slide-in-right hover-lift hover-glow"
+          >
+            <h3 class="text-xl font-semibold mb-2">
+              Roove Beauty Collagen Drink
+            </h3>
+            <p class="mb-4 text-xl">Bisa Beli Eceran 1 Sachet</p>
+            <p class="text-2xl font-bold text-purple-700 mt-11">Rp. 15.500</p>
+            <a
+              href="https://wa.me/6285883875292"
+              class="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg transition-all duration-300 hover:scale-105 text-lg active:scale-95 animate-pulse hover-glow mt-4"
+            >
+              PESAN SEKARANG - GRATIS ONGKIR - BISA COD
+            </a>
+          </div>
+        </div>
       </div>
-
-      <!-- Card 3 (Tambahan) -->
-      <div class="border border-gray-300 rounded-xl p-4 shadow-md w-[330px] md:w-[48%] lg:w-[32%]">
-        <h3 class="text-xl font-semibold mb-2">Roove Beauty Collagen Drink</h3>
-        <p class="mb-4 text-xl">Bisa Beli Eceran 1 Sachet</p>
-        <p class="text-2xl font-bold text-purple-700 mt-11">Rp. 15.500</p>
-        <a href="https://wa.me/6285883875292"
-          class="inline-block bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg transition-transform hover:scale-105 text-lg active:scale-95 animate-pulse mt-4">
-          PESAN SEKARANG - GRATIS ONGKIR - BISA COD
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 
       <!-- 👇 Ditaruh di luar .container agar bisa full width -->
       <p
-        class="bg-white text-lg shadow-md p-3 mt-1 w-[330px] md:w-[1024px] mx-auto rounded-lg text-center border-t border-b border-gray-300 border-[1px] font-bold"
+        class="bg-white text-lg shadow-md p-3 mt-1 w-[330px] md:w-[1024px] mx-auto rounded-lg text-center border-t border-b border-gray-300 border-[1px] font-bold fade-in bounce-in"
       >
         BISA COD dan GRATIS ONGKIR MELALUI SHOPEE <br />
         <a
           href="https://s.shopee.co.id/4AnkvBBvrE"
           target="_blank"
-          class="relative z-[99] inline-flex bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg active:scale-95 animate-pulse gap-4"
+          class="relative z-[99] inline-flex bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded-lg shadow-lg active:scale-95 animate-pulse gap-4 hover-glow transition-all duration-300 hover:scale-105"
         >
           KLIK DISINI
           <img src="./assets/shopee.webp" alt="Shopee" class="w-7 h-7" />
@@ -429,7 +646,7 @@
       <a
         href="https://wa.me/6285883875292"
         target="_blank"
-        class="rounded-full shadow hover:opacity-80"
+        class="rounded-full shadow hover:opacity-80 transition-all duration-300 hover:scale-110"
       >
         <img
           src="./assets/whatsapp.webp"
@@ -441,7 +658,7 @@
       <a
         href="https://s.shopee.co.id/4AnkvBBvrE"
         target="_blank"
-        class="rounded-full shadow hover:opacity-80"
+        class="rounded-full shadow hover:opacity-80 transition-all duration-300 hover:scale-110"
       >
         <img
           src="./assets/shopee.webp"
@@ -452,9 +669,92 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-black text-center p-4 mt-10 text-sm text-white z-50">
+    <div class="bg-black text-center p-4 mt-10 text-sm text-white z-50 fade-in">
       &copy; 2025 Distributor Resmi Roove Collagen Drink. Developed by Ilman.
       All Rights Reserved.
     </div>
+
+    <!-- JavaScript for Framer Motion-like animations -->
+    <script>
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll(
+          '.fade-in, .slide-in-left, .slide-in-right, .scale-in, .bounce-in, .stagger-item'
+        );
+        animatedElements.forEach((el) => observer.observe(el));
+
+        // Add stagger animation delay
+        const staggerItems = document.querySelectorAll('.stagger-item');
+        staggerItems.forEach((item, index) => {
+          item.style.transitionDelay = `${index * 0.1}s`;
+        });
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        });
+      });
+
+      // Add hover effects to buttons
+      document
+        .querySelectorAll('a[href*="wa.me"], a[href*="shopee"]')
+        .forEach((button) => {
+          button.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.05) translateY(-2px)';
+          });
+
+          button.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1) translateY(0)';
+          });
+        });
+
+      // Parallax effect for hero image
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroImage = document.querySelector('#hero img');
+        if (heroImage) {
+          const rate = scrolled * -0.5;
+          heroImage.style.transform = `translateY(${rate}px)`;
+        }
+      });
+
+      // Add loading animation
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+
+        // Animate hero elements on load
+        const heroElements = document.querySelectorAll(
+          '#hero .fade-in, #hero .slide-in-left, #hero .slide-in-right, #hero .scale-in'
+        );
+        heroElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('visible');
+          }, index * 200);
+        });
+      });
+    </script>
   </body>
 </html>
